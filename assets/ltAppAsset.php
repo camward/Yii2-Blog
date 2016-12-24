@@ -13,23 +13,17 @@ use yii\web\AssetBundle;
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
  */
-class AppAsset extends AssetBundle
+class ltAppAsset extends AssetBundle
 {
     public $basePath = '@webroot';
     public $baseUrl = '@web';
-    public $css = [
-        'css/reset.css',
-        'css/styles.css',
-    ];
+
     public $js = [
-        'js/jquery-1.11.1.js',
-        'js/jquery.roundabout-1.0.min.js',
-        'js/jquery.easing.1.3.js',
-        'js/script.js',
+        'js/DD_belatedPNG_0.0.8a-min.js',
     ];
-    public $depends = [
-    ];
+
     public $jsOptions = [
+        'condition' => 'if IE 6',
         'position' => \yii\web\View::POS_HEAD
     ];
 }
