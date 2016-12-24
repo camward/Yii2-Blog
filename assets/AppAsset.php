@@ -25,6 +25,7 @@ class AppAsset extends AssetBundle
         'js/jquery-1.11.1.js',
         'js/jquery.roundabout-1.0.min.js',
         'js/jquery.easing.1.3.js',
+        'js/jquery.roundabout-shapes-1.1.js',
         'js/script.js',
     ];
     public $depends = [
