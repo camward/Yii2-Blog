@@ -34,12 +34,13 @@ ltAppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'grid_8', 'id' => 'navigation'],
         'items' => [
-            ['label' => 'Contact Us', 'url' => ['/my/contact']],
-            ['label' => 'Blog', 'url' => ['/blog/index']],
-            ['label' => 'Portfolio', 'url' => ['/portfolio/index']],
-            ['label' => 'About', 'url' => ['/my/about']],
-            ['label' => 'Home', 'url' => ['/my/index']],
+            ['label' => '<span class="meta">Get in touch</span><br />Contact Us', 'url' => ['/my/contact']],
+            ['label' => '<span class="meta">Latest news</span><br />Blog', 'url' => ['/blog/index']],
+            ['label' => '<span class="meta">Our latest work</span><br />Portfolio', 'url' => ['/portfolio/index']],
+            ['label' => '<span class="meta">Who are we?</span><br />About', 'url' => ['/my/about']],
+            ['label' => '<span class="meta">Homepage</span><br />Home', 'url' => ['/my/index']],
         ],
+        'encodeLabels' => false
     ]);
     ?>
 

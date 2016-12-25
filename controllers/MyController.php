@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use Yii;
 use app\models\Contact;
+use app\models\Project;
 
 class MyController extends AppController
 {
@@ -30,7 +31,8 @@ class MyController extends AppController
 
     public function actionIndex()
     {
-        return $this->render('index');
+        $project = Project::find()->orderBy(['id'=>SORT_DESC])->limit(5)->all();
+        return $this->render('index', compact('project'));
     }
 
 }
