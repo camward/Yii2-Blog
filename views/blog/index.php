@@ -25,8 +25,11 @@
 
     <!-- Blog Navigation -->
     <p class="clearfix">
-        <a href="#" class="button float">&lt;&lt; Previous Posts</a>
-        <a href="#" class="button float right">Newer Posts >></a>
+        <?php
+        echo \yii\widgets\LinkPager::widget([
+            'pagination' => $pages,
+        ]);
+        ?>
     </p>
 </div>
 
