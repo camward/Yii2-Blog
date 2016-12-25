@@ -53,6 +53,8 @@ $config = [
                     'route' => 'my/index',
                     'suffix' => ''
                 ],
+                'portfolio/<id:\d+>' => 'portfolio/view',
+                'portfolio' => 'portfolio/index',
                 '<action>' => 'my/<action>',
             ],
         ],

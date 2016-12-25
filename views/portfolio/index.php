@@ -1,9 +1,22 @@
-<?php
-/* @var $this yii\web\View */
-?>
-<h1>portfolio/index</h1>
-
-<p>
-    You may change the content of this page by modifying
-    the file <code><?= __FILE__; ?></code>.
-</p>
+<h2 class="grid_12 caption clearfix">Our <span>portfolio</span>, home to our latest, and greatest work.</h2>
+<?foreach($portfolio as $port):?>
+    <div class="pr clearfix grid_12">&nbsp;</div>
+    <div class="catagory_1 clearfix">
+        <!-- Row 1 -->
+        <div class="grid_3 textright" >
+            <span class="meta"><?=$port['description']?></span>
+            <h4 class="title" style="margin-top: 0!important;"><?=$port['name']?></h4>
+            <div class="hr clearfix dotted">&nbsp;</div>
+            <p><?=$port['text']?></p>
+        </div>
+        <div class="grid_9">
+            <?foreach($port['projects'] as $project):?>
+                <a class="portfolio_item float alpha" href="<?= \yii\helpers\Url::to(['portfolio/view', 'id' => $project['id']]) ?>">
+                    <span><?=$project['name']?></span>
+                    <img src="/images/223x112.gif" />
+                </a>
+            <?endforeach;?>
+            <div class="clear"></div>
+        </div>
+    </div>
+<?endforeach;?>
