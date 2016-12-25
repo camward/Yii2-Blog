@@ -19,6 +19,13 @@ class AppController extends Controller
     }
 }
 
+function truncateBlogText($str){
+    if(strlen($str) > 610)
+        echo substr($str, 0, 610).'...';
+    else
+        echo $str;
+}
+
 function debug($arr){
     echo "<pre>";
     print_r($arr);

@@ -53,6 +53,9 @@ $config = [
                     'route' => 'my/index',
                     'suffix' => ''
                 ],
+                'blog/<id:\d+>' => 'blog/view',
+                'blog/category/<cat_id:\d+>' => 'blog/index',
+                'blog' => 'blog/index',
                 'portfolio/<id:\d+>' => 'portfolio/view',
                 'portfolio' => 'portfolio/index',
                 '<action>' => 'my/<action>',
