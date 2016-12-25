@@ -16,7 +16,8 @@ class PortfolioController extends AppController
 
     public function actionView($id)
     {
-        $project = Project::findOne($id);
+        // $project = Project::findOne($id);
+        $project = Project::find()->asArray()->where(['id' => $id])->with('images')->all();
         return $this->render('view', compact('project'));
     }
 }

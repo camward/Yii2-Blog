@@ -13,7 +13,7 @@
             <?foreach($port['projects'] as $project):?>
                 <a class="portfolio_item float alpha" href="<?= \yii\helpers\Url::to(['portfolio/view', 'id' => $project['id']]) ?>">
                     <span><?=$project['name']?></span>
-                    <img src="/images/223x112.gif" />
+                    <img src="/images/<?=$project['min_img']?>" />
                 </a>
             <?endforeach;?>
             <div class="clear"></div>

@@ -16,4 +16,8 @@ class Project extends ActiveRecord
     {
         return 'project';
     }
+
+    public function getImages(){
+        return $this->hasMany(ProjectImages::className(), ['project_id' => 'id']);
+    }
 }
