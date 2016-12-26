@@ -1,3 +1,9 @@
+<?
+$this->title = 'Блог';
+$this->registerMetaTag(['name'=>'keywords', 'content'=>'ключевые слова']);
+$this->registerMetaTag(['name'=>'description', 'content'=>'описание страницы']);
+?>
+
 <!-- Caption Line -->
 <h2 class="grid_12 caption clearfix">Our <span>blog</span>, keeping you up-to-date on our latest news.</h2>
 <div class="hr grid_12 clearfix">&nbsp;</div>

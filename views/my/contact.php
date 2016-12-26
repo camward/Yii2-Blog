@@ -1,4 +1,8 @@
 <?
+$this->title = 'About';
+$this->registerMetaTag(['name'=>'keywords', 'content'=>'ключевые слова']);
+$this->registerMetaTag(['name'=>'description', 'content'=>'описание страницы']);
+
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 ?>

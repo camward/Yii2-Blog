@@ -1,3 +1,9 @@
+<?
+$this->title = 'Aurelius';
+$this->registerMetaTag(['name'=>'keywords', 'content'=>'ключевые слова']);
+$this->registerMetaTag(['name'=>'description', 'content'=>'описание страницы']);
+?>
+
 <!-- Featured Image Slider -->
 <div id="featured" class="clearfix grid_12">
     <ul>

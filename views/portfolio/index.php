@@ -1,3 +1,9 @@
+<?
+$this->title = 'Портфолио';
+$this->registerMetaTag(['name'=>'keywords', 'content'=>'ключевые слова']);
+$this->registerMetaTag(['name'=>'description', 'content'=>'описание страницы']);
+?>
+
 <h2 class="grid_12 caption clearfix">Our <span>portfolio</span>, home to our latest, and greatest work.</h2>
 <?foreach($portfolio as $port):?>
     <div class="pr clearfix grid_12">&nbsp;</div>

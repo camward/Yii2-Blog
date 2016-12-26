@@ -1,3 +1,9 @@
+<?
+$this->title = $project[0]['name'].' - Портфолио';
+$this->registerMetaTag(['name'=>'keywords', 'content'=>'ключевые слова']);
+$this->registerMetaTag(['name'=>'description', 'content'=>'описание страницы']);
+?>
+
 <h2 class="grid_12 caption clearfix">Our <span>portfolio</span>, home to our latest, and greatest work.</h2>
 <div class="hr grid_12 clearfix">&nbsp;</div>
 

@@ -1,3 +1,9 @@
+<?
+$this->title = 'О сайте';
+$this->registerMetaTag(['name'=>'keywords', 'content'=>'ключевые слова']);
+$this->registerMetaTag(['name'=>'description', 'content'=>'описание страницы']);
+?>
+
 <!-- Caption Line -->
 <h2 class="grid_12 caption">Learn <span>about us</span> and what we do best.</h2>
 <div class="hr grid_12 clearfix">&nbsp;</div>

@@ -31,7 +31,12 @@ class MyController extends AppController
 
     public function actionIndex()
     {
-        $project = Project::find()->orderBy(['id'=>SORT_DESC])->limit(5)->all();
+        $project = Yii::$app->cache->get('project_index');
+        if(empty($project)){
+            $project = Project::find()->orderBy(['id'=>SORT_DESC])->limit(5)->all();
+            Yii::$app->cache->set('project_index', $project, 60*60*24);
+        }
+
         return $this->render('index', compact('project'));
     }
 
