@@ -24,10 +24,10 @@ class PortfolioController extends AppController
         // $project = Project::findOne($id);
         // $project = Project::find()->asArray()->where(['id' => $id])->with('images')->all();
 
-        $project = Yii::$app->cache->get('project');
+        $project = Yii::$app->cache->get('portfolio_project');
         if(empty($project)){
-            $project = Portfolio::find()->asArray()->with('projects')->all();
-            Yii::$app->cache->set('project', $project, 60*60);
+            $project = Project::find()->asArray()->where(['id' => $id])->with('images')->all();
+            Yii::$app->cache->set('portfolio_project', $project, 60*60);
         }
 
         return $this->render('view', compact('project'));
