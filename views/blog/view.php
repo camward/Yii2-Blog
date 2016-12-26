@@ -1,3 +1,8 @@
+<?
+use yii\widgets\ActiveForm;
+use yii\helpers\Html;
+?>
+
 <!-- Caption Line -->
 <h2 class="grid_12 caption clearfix">Our <span>blog</span>, keeping you up-to-date on our latest news.</h2>
 
@@ -12,7 +17,7 @@
             <!-- Post Title -->
             <h3 class="title"><a href="javascript:void(0)"><?=$post['name']?></a></h3>
             <!-- Post Title -->
-            <p class="sub"><?=$post['date']?> &bull; <a href="#commentlist">7 Comments</a></p>
+            <p class="sub"><?=$post['date']?> &bull; <a href="#commentlist"><?=$comment?> Comments</a></p>
             <div class="hr dotted clearfix">&nbsp;</div>
             <!-- Post Title -->
             <img class="thumb" src="/images/<?=$post['images']?>" />
@@ -32,52 +37,54 @@
     <div class="hr dotted clearfix">&nbsp;</div>
 
     <ol class="commentlist">
-        <li class="comment">
-            <div class="gravatar">
-                <img alt="" src='/images/gravatar.png' height='48' width='48' />
-                <a class="comment-reply-link" href=''>Reply</a>
-            </div>
-            <div class="comment_content">
-                <div class="clearfix">
-                    <cite class="author_name"><a href="">Joe Bloggs</a></cite>
-                    <div class="comment-meta commentmetadata">January 6, 2010 at 6:26 am</div>
+        <?foreach($comment_list as $comments):?>
+            <li class="comment" style="margin-bottom: 20px;">
+                <div class="gravatar">
+                    <img alt="" src='/images/gravatar.png' height='48' width='48' />
                 </div>
-                <div class="comment_text">
-                    <p>Donec leo. Aliquam risus elit, luctus vel, interdum vitae, malesuada eget, elit. Nulla vitae ipsum. Donec ligula ante, bibendum sit amet, elementum quis, viverra eu, ante. Fusce tincidunt. Mauris pellentesque, arcu eget feugiat accumsan, ipsum mi molestie orci, ut pulvinar sapien lorem nec dui.</p>
+                <div class="comment_content">
+                    <div class="clearfix">
+                        <cite class="author_name"><a href="javascript:void(0)"><?=$comments['name']?></a></cite>
+                        <div class="comment-meta commentmetadata"><?=$comments['email']?></div>
+                    </div>
+                    <div class="comment_text">
+                        <?=$comments['text']?>
+                    </div>
                 </div>
-            </div>
-        </li>
+            </li>
+        <?endforeach;?>
     </ol>
 
     <div class="hr clearfix">&nbsp;</div>
 
     <!-- Comment Form -->
-    <form id="comment_form" action="" method="post">
-        <h3>Add a comment</h3>
-        <div class="hr dotted clearfix">&nbsp;</div>
-        <ul>
-            <li class="clearfix">
-                <label for="name">Your Name</label>
-                <input id="name" name="name" type="text" />
-            </li>
-            <li class="clearfix">
-                <label for="email">Your Email</label>
-                <input id="email" name="email" type="text" />
-            </li>
-            <li class="clearfix">
-                <label for="email">Your Website</label>
-                <input id="website" name="website" type="text" />
-            </li>
-            <li class="clearfix">
-                <label for="message">Comment</label>
-                <textarea id="message" name="message" rows="3" cols="40"></textarea>
-            </li>
-            <li class="clearfix">
-                <!-- Add Comment Button -->
-                <a type="submit" class="button medium black right">Add comment</a>
-            </li>
-        </ul>
-    </form>
+    <h3 id="comment_form">Add a comment</h3>
+    <div class="hr dotted clearfix">&nbsp;</div>
+
+    <?if(Yii::$app->session->hasFlash('success')):?>
+        <div class="alert alert-success alert-dismissable">
+            <?=Yii::$app->session->getFlash('success')?>
+        </div>
+    <?endif;?>
+    <?if(Yii::$app->session->hasFlash('error')):?>
+        <div class="alert alert-danger alert-dismissable">
+            <?=Yii::$app->session->getFlash('error')?>
+        </div>
+    <?endif;?>
+
+    <?$form = ActiveForm::begin();?>
+    <fieldset>
+        <?=$form->field($model, 'name')?>
+        <?=$form->field($model, 'email')?>
+        <?=$form->field($model, 'text')->textarea(['rows' => 5])?>
+    </fieldset>
+    <div class="link-form">
+        <?=Html::resetButton('Очистить', ['class' => 'btn btn-default btn-sm'])?>
+        <?=Html::submitButton('Отправить', ['class' => 'btn btn-primary btn-sm'])?>
+    </div>
+    <div class="clear"></div>
+    <?ActiveForm::end();?>
+    <br />
 </div>
 
 <!-- Column 2 / Sidebar -->

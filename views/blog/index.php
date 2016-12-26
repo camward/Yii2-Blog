@@ -11,7 +11,7 @@
             <!-- Post Title -->
             <h3 class="title"><a href="<?= \yii\helpers\Url::to(['blog/view', 'id' => $post['id']])?>"><?=$post['name']?></a></h3>
             <!-- Post Data -->
-            <p class="sub"><?=$post['date']?> &bull; <a href="javascript:void(0)">1 Comment</a></p>
+            <p class="sub"><?=$post['date']?> &bull; <a href="javascript:void(0)"><?=$comment?> Comment</a></p>
             <div class="hr dotted clearfix">&nbsp;</div>
             <!-- Post Image -->
             <img class="thumb" alt="" src="/images/<?=$post['images']?>" />
